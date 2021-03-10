@@ -1,3 +1,11 @@
+<?php
+session_start();
+if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true))
+{
+    header('Location: sklep.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,13 +13,9 @@
   <link rel="stylesheet" type="text/css" href="styles/loginStyle.css">
 </head>
 <body>
-
 <?php
-$host = "mysql-server";
-$user = "root";
-$pass = "secret1234";
-$db = "webapp";
 $sql = "SELECT * from users";
+require_once "connection.php";
 try
 {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
@@ -35,6 +39,8 @@ try
     {
         print "Nie wpisano hasla<br>";
     }
+if(isset($_SESSION['err']))
+echo $_SESSION['err'];
 
 }
 catch(PDOException $e)
@@ -45,7 +51,8 @@ catch(PDOException $e)
 
 
 
-<form class="container" action="login.php" method="POST">
+
+  <form class="container" action="session.php" method="POST">
   <h2>Sign in</h2>
   <input type="text" name="inlogin" placeholder="Enter Username">
   <input type="password" name="inpass" placeholder="Enter Password">
