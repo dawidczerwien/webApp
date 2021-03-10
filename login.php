@@ -51,11 +51,13 @@ catch(PDOException $e)
 
 
 
-<form class="container" action="session.php" method="POST">
-  <h2>LOGOWANIE</h2>
+
+  <form class="container" action="session.php" method="POST">
+  <h2>Sign in</h2>
   <input type="text" name="inlogin" placeholder="Enter Username">
   <input type="password" name="inpass" placeholder="Enter Password">
   <button type="submit">Login</button>
+  <a href="register.php">Don't have account Yet <p>Sign up</p></a>
 </form>
 
 

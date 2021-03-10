@@ -55,3 +55,17 @@ body {
     width: 250px;
     background-color: #57b846;
 }
+.container a {
+    color: white;
+    text-decoration: none;
+    transition: 0.4s;
+}
+.container p {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 7px;
+    display: inline-block;
+}
+.container a:hover {
+    color: rgb(163, 163, 163);
+}
