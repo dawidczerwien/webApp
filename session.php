@@ -27,10 +27,8 @@ try
 	{
 		$_SESSION['err'] = '<span style="color:red">Incorrect login and/or password!</span>';
 		header('Location: login.php');
+		exit();
 	}
-	if(isset($_SESSION['err']))
-		echo $_SESSION['err'];
-
 }
 catch(PDOException $e)
 {
