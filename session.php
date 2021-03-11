@@ -10,7 +10,6 @@ try
 {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully<br>";
     $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ? and upass = ?');
     $stmt->execute(array($_POST['inlogin'], $_POST['inpass']));
     $outcome = $stmt->fetch();
