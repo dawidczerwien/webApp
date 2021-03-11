@@ -1,6 +1,6 @@
 <?php
 session_start();
-if((!isset($_POST['inlogin'])) || (!isset($_POST['inpass'])))
+if((!isset($_POST['inlogin'])) || (!isset($_POST['inpass'])))  //If user is not logged in send him back to login.php
 {
     header('Location: login.php');
     exit();
@@ -23,8 +23,13 @@ try
         $_SESSION['realsurname'] = $outcome['realsurname'];
         unset($_SESSION['err']);
     }
-if(isset($_SESSION['err']))
-echo $_SESSION['err'];
+	else 
+	{
+		$_SESSION['err'] = '<span style="color:red">Incorrect login and/or password!</span>';
+		header('Location: login.php');
+	}
+	if(isset($_SESSION['err']))
+		echo $_SESSION['err'];
 
 }
 catch(PDOException $e)
