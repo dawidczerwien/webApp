@@ -21,10 +21,7 @@ try
         $_SESSION['ubank'] = $outcome['ubank'];
         $_SESSION['realname'] = $outcome['realname'];
         $_SESSION['realsurname'] = $outcome['realsurname'];
-        
-        print "Witaj {$_SESSION['realname']} {$_SESSION['realsurname']}!<br><br>";
-        print "Masz na koncie <b>{$_SESSION['ubank']}</b>";
-
+        unset($_SESSION['err']);
     }
 if(isset($_SESSION['err']))
 echo $_SESSION['err'];
