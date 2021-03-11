@@ -17,10 +17,13 @@ try
     {
         $_SESSION['loggedin'] = true;
         $_SESSION['id'] = $outcome['id'];
+		$_SESSION['ulogin'] = $outcome['ulogin'];
         $_SESSION['ubank'] = $outcome['ubank'];
         $_SESSION['realname'] = $outcome['realname'];
         $_SESSION['realsurname'] = $outcome['realsurname'];
         unset($_SESSION['err']);
+		header('Location: userpage.php');
+		exit();
     }
 	else 
 	{
