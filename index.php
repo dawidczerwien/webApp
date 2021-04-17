@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +18,6 @@
         </div>
         <div id="content">
         <?php
-        session_start();
         require_once "connection.php";
         try
         {
