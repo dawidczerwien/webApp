@@ -14,16 +14,26 @@
             </div>
         </div>
         <div id="content">
-            
-            <div class=obrazki>
-                <p class="akapity">Content:</p>
-                <img src="https://bi.im-g.pl/im/9f/66/17/z24537759IH,Ksiazki-w-bibliotece.jpg">
-                
-            </div>
-            <div>
-                <p class="akapity">Następny Akapit</p>
-                <img src="https://dziendobry.tvn.pl/media/cache/content_cover/gettyimages-949118068-jpg.jpg">
-            </div>
+        <?php
+        session_start();
+        require_once "connection.php";
+        try
+        {
+            $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare('SELECT * FROM prod');
+            $stmt->execute();
+            $outcome = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($stmt->rowCount() > 0)
+            {
+                while ($row = $outcome)
+                {
+                    echo "product: ";
+                    echo $row['name'];
+                    echo "<br>";
+                }
+            }
+        ?>
         </div>
         
         
