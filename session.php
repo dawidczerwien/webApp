@@ -1,6 +1,6 @@
 <?php
 session_start();
-if((!isset($_POST['inlogin'])) || (!isset($_POST['inpass'])))
+if((!isset($_POST['inlogin'])) || (!isset($_POST['inpass'])))  //If user is not logged in send him back to login.php
 {
     header('Location: login.php');
     exit();
@@ -10,7 +10,6 @@ try
 {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully<br>";
     $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ? and upass = ?');
     $stmt->execute(array($_POST['inlogin'], $_POST['inpass']));
     $outcome = $stmt->fetch();
@@ -18,17 +17,20 @@ try
     {
         $_SESSION['loggedin'] = true;
         $_SESSION['id'] = $outcome['id'];
+		$_SESSION['ulogin'] = $outcome['ulogin'];
         $_SESSION['ubank'] = $outcome['ubank'];
         $_SESSION['realname'] = $outcome['realname'];
         $_SESSION['realsurname'] = $outcome['realsurname'];
-        
-        print "Witaj {$_SESSION['realname']} {$_SESSION['realsurname']}!<br><br>";
-        print "Masz na koncie <b>{$_SESSION['ubank']}</b>";
-
+        unset($_SESSION['err']);
+		header('Location: userpage.php');
+		exit();
     }
-if(isset($_SESSION['err']))
-echo $_SESSION['err'];
-
+	else 
+	{
+		$_SESSION['err'] = '<span style="color:red">Incorrect login and/or password!</span>';
+		header('Location: login.php');
+		exit();
+	}
 }
 catch(PDOException $e)
 {
