@@ -10,8 +10,8 @@ try
     $outcome = $stmt->fetch();
     if($stmt->rowCount() == 0)
     {
-        $stmt = $conn->prepare("INSERT INTO users ('uname', 'upass', 'ubank', 'uemail') VALUES (?, ?, ?, ?)");
-        $stmt->execute(array($_POST['inlogin'], $_POST['inpass'], 0, $_POST['inEmail']));
+        $stmt = $conn->prepare("INSERT INTO users ('uname', 'upass', 'uemail') VALUES (?, ?, ?)");
+        $stmt->execute(array($_POST['inlogin'], $_POST['inpass'], $_POST['inEmail']));
         unset($_SESSION['err']);
 		header('Location: userpage.php');
 		exit();
