@@ -8,7 +8,7 @@ try
     $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ? OR uemail = ?');
     $stmt->execute(array($_POST['inlogin'], $_POST['inEmail']));
     $outcome = $stmt->fetch();
-    if($stmt->rowCount() = 0)
+    if($stmt->rowCount() == 0)
     {
         $stmt = $conn->prepare("INSERT INTO users ('uname', 'upass', 'ubank', 'uemail') VALUES (?, ?, ?, ?)");
         $stmt->execute(array($_POST['inlogin'], $_POST['inpass'], 0, $_POST['inEmail']));
