@@ -29,9 +29,14 @@
             {
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
                 {
-                    echo "product: ";
+                    echo "<div class='product'>";
+                    echo "<h2>";
                     echo $row['name'];
-                    echo "<br>";
+                    echo "</h2>";
+                    echo "<p>";
+                    echo $row['price'];
+                    echo "<p>";
+                    echo "</div>";
                 }
             }
         }
