@@ -23,7 +23,7 @@
         {
             $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmt = $conn->prepare('SELECT * FROM prod');
+            $stmt = $conn->prepare('SELECT * FROM prod ORDER BY put_date DESC');
             $stmt->execute();
             if($stmt->rowCount() > 0)
             {
