@@ -17,10 +17,11 @@
             session_start();
             if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true))
             {
-                echo '<a href="logout.php"><p>LOGOUT</p></a>'
+                echo '<a href="logout.php"><p>LOGOUT</p></a>';
             } else {
-                echo '<a href="login.php"><p>LOGIN</p></a>'
+                echo '<a href="login.php"><p>LOGIN</p></a>';
             }
+            ?>
             </div>
         </div>
         <div id="content">
