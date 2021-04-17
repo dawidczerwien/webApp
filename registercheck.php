@@ -13,7 +13,7 @@ try
         $stmt = $conn->prepare("INSERT INTO users (`uname`, `upass`, `uemail`) VALUES (?, ?, ?)");
         $stmt->execute(array($_POST['inlogin'], $_POST['inpass'], $_POST['inEmail']));
         unset($_SESSION['err']);
-		header('Location: userpage.php');
+		header('Location: login.php');
 		exit();
     }
 	else 
