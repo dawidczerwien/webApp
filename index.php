@@ -23,10 +23,9 @@
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $conn->prepare('SELECT * FROM prod');
             $stmt->execute();
-            $outcome = $stmt->fetch(PDO::FETCH_ASSOC);
             if($stmt->rowCount() > 0)
             {
-                while ($row = $outcome)
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
                 {
                     echo "product: ";
                     echo $row['name'];
