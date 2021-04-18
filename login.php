@@ -1,7 +1,6 @@
 <?php
 session_start();
-if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true))
-{
+if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
     header('Location: userpage.php');
     exit();
 }
@@ -24,8 +23,5 @@ if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true))
   ?>
   <a href="register.php">Don't have account Yet <p>Sign up</p></a>
 </form>
-
-
-
 </body>
 </html>

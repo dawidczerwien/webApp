@@ -1,8 +1,7 @@
 <?php
 session_start();
 require_once "connection.php";
-try
-{
+try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ? OR uemail = ?');
@@ -26,8 +25,7 @@ try
 		header('Location: register.php');
 		exit();
 	}
-}
-catch(PDOException $e) {
+} catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>

@@ -1,13 +1,11 @@
 <?php
 session_start();
-if((!isset($_POST['inlogin'])) || (!isset($_POST['inpass'])))  //If user is not logged in send him back to login.php
-{
+if((!isset($_POST['inlogin'])) || (!isset($_POST['inpass']))) {  //If user is not logged in send him back to login.php
     header('Location: login.php');
     exit();
 }
 require_once "connection.php";
-try
-{
+try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ?');
@@ -33,15 +31,13 @@ try
             exit();
         }
     }
-	else 
-	{
+	else {
 		$_SESSION['err'] = '<span style="color:red">Incorrect login!</span>';
 		header('Location: login.php');
 		exit();
 	}
 }
-catch(PDOException $e)
-{
+catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>

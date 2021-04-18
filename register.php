@@ -15,13 +15,11 @@ $user = "root";
 $pass = "secret1234";
 $db = "webapp";
 $sql = "SELECT * from users";
-try
-{
+try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
-catch(PDOException $e)
-{
+catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>

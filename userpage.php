@@ -1,7 +1,6 @@
 <?php
 session_start();
-if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false))
-{
+if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
     header('Location: login.php');
     exit();
 }
@@ -16,6 +15,9 @@ echo "Your account's balance is".$_SESSION['ubank']."<br>";
   <link rel="stylesheet" type="text/css" href="styles/loginStyle.css">
 </head>
 <body>
+    <form class="container" action="index.php" method="POST">
+        <button type="submit">Main Page</button>
+    </form>
     <form class="container" action="logout.php" method="POST">
         <button type="submit">Logout</button>
     </form>
