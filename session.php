@@ -10,8 +10,9 @@ try
 {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $passhash = password_hash($_POST['inpass'], PASSWORD_BCRYPT);
     $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ? and upass = ?');
-    $stmt->execute(array($_POST['inlogin'], $_POST['inpass']));
+    $stmt->execute(array($_POST['inlogin'], $passhash));
     $outcome = $stmt->fetch();
     if($stmt->rowCount() > 0)
     {
