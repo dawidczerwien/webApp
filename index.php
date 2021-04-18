@@ -15,8 +15,10 @@
             <div id="loginIcon">
             <?php
             session_start();
-            if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true))
-            {
+            if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
+                echo '<p>Logged in as:';
+                echo $outcome['uname'];
+                echo '</p><br>';
                 echo '<a href="logout.php"><p>LOGOUT</p></a>';
             } else {
                 echo '<a href="login.php"><p>LOGIN</p></a>';
