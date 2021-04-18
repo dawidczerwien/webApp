@@ -16,8 +16,10 @@
   <input type="password" name="inConfirmPass" placeholder="Confirm Passward">
   <input type="text" name="inEmail" placeholder="Enter Email">
   <?php
-	if(isset($_SESSION['err']))	
+	if(isset($_SESSION['err']))	{
 		echo $_SESSION['err']."<br>";
+    unset( $_SESSION['err'])
+  }
   ?>
   <button type="submit">Register</button>
   <a href="login.php">Already have account <p>Sign in </p></a>
