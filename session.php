@@ -9,7 +9,7 @@ function dbLoginExistsCheck($conn, $login) { //Nie istnieje=true, instnieje=fals
 function dbPasswordCheck($conn, $login, $pass) {
     $stmt = $conn->prepare('SELECT upass FROM users WHERE uname = ?');
     $stmt->execute(array($login));
-    $hashpass = $stmt2->fetch();
+    $hashpass = $stmt->fetch();
     if(password_verify($pass, $hashpass['upass'])) return true;
     return false;
 }
