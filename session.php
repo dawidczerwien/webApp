@@ -8,6 +8,7 @@ require_once "connection.php";
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
     $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ?');
     $stmt->execute(array($_POST['inlogin']));
     $outcome = $stmt->fetch();

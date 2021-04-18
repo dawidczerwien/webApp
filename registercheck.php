@@ -14,7 +14,7 @@ function passwordStrenghtCheck($password) {
     $hasLowercase = preg_match('@[a-z]@', $password);
     $hasNumber    = preg_match('@[0-9]@', $password);
     $hasSpecialChars = preg_match('@[^\w]@', $password);
-    if (!$hasUppercase || !$hasLowercase || !$hasNumber || !$hasSpecialChars || strlen($passTMP) < 8) return true;
+    if (!$hasUppercase || !$hasLowercase || !$hasNumber || !$hasSpecialChars || strlen($password) < 8) return true;
     return false;
 }
 

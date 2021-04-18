@@ -19,7 +19,9 @@ if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
   <button type="submit">Login</button>
   <?php
 	if(isset($_SESSION['err']))	
-		echo $_SESSION['err']."<br>";
+    echo $_SESSION['err']."<br>";
+  if(isset($_SESSION['mess']))	
+    echo $_SESSION['mess']."<br>";
   ?>
   <a href="register.php">Don't have account Yet <p>Sign up</p></a>
 </form>
