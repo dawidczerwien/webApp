@@ -34,9 +34,9 @@ try {
         header('Location: login.php');
         exit();
     }
-
+    
     $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ?');
-    $stmt->execute(array($login));
+    $stmt->execute(array($_POST['inlogin']));
     $outcome = $stmt->fetch();
     $_SESSION['loggedin'] = true;
     $_SESSION['id'] = $outcome['id'];
