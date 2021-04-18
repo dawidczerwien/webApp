@@ -9,7 +9,7 @@ try
     $stmt->execute(array($_POST['inlogin'], $_POST['inEmail']));
     $outcome = $stmt->fetch();
     if($stmt->rowCount() == 0) {
-        if(inpass == inConfirmPass) {
+        if($_POST['inpass'] == $_POST['inConfirmPass']) {
             $passhash = password_hash($_POST['inpass'], PASSWORD_BCRYPT);
             $stmt = $conn->prepare("INSERT INTO users (`uname`, `upass`, `uemail`) VALUES (?, ?, ?)");
             $stmt->execute(array($_POST['inlogin'], $passhash, $_POST['inEmail']));
