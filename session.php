@@ -1,39 +1,54 @@
 <?php
+function dbLoginExistsCheck($conn, $login) { //Nie istnieje=true, instnieje=false
+    $stmt = $conn->prepare('SELECT id FROM users WHERE uname = ?');
+    $stmt->execute(array($login));
+    if($stmt->rowCount() == 0) return true;
+    return false;
+}
+
+function dbPasswordCheck($conn, $login, $pass) {
+    $stmt = $conn->prepare('SELECT upass FROM users WHERE uname = ?');
+    $stmt->execute(array($login));
+    $hashpass = $stmt->fetch();
+    if(password_verify($pass, $hashpass['upass'])) return true;
+    return false;
+}
+
 session_start();
-if((!isset($_POST['inlogin'])) || (!isset($_POST['inpass'])))  //If user is not logged in send him back to login.php
-{
+if((!isset($_POST['inlogin'])) || (!isset($_POST['inpass']))) {  //If user is not logged in send him back to login.php
     header('Location: login.php');
     exit();
 }
 require_once "connection.php";
-try
-{
+try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ? and upass = ?');
-    $stmt->execute(array($_POST['inlogin'], $_POST['inpass']));
-    $outcome = $stmt->fetch();
-    if($stmt->rowCount() > 0)
-    {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['id'] = $outcome['id'];
-		$_SESSION['ulogin'] = $outcome['ulogin'];
-        $_SESSION['ubank'] = $outcome['ubank'];
-        $_SESSION['realname'] = $outcome['realname'];
-        $_SESSION['realsurname'] = $outcome['realsurname'];
-        unset($_SESSION['err']);
-		header('Location: userpage.php');
-		exit();
+    
+    if(dbLoginExistsCheck($conn, $_POST['inlogin'])) {
+        $_SESSION['err'] = '<span style="color:red">User doesn\'t exist!</span>';
+        header('Location: login.php');
+        exit();
     }
-	else 
-	{
-		$_SESSION['err'] = '<span style="color:red">Incorrect login and/or password!</span>';
-		header('Location: login.php');
-		exit();
-	}
-}
-catch(PDOException $e)
-{
+    if(!dbPasswordCheck($conn, $_POST['inlogin'], $_POST['inpass'])) {
+        $_SESSION['err'] = '<span style="color:red">Incorrect password!</span>';
+        header('Location: login.php');
+        exit();
+    }
+    
+    $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ?');
+    $stmt->execute(array($_POST['inlogin']));
+    $outcome = $stmt->fetch();
+    $_SESSION['loggedin'] = true;
+    $_SESSION['id'] = $outcome['id'];
+    $_SESSION['uname'] = $outcome['uname'];
+    $_SESSION['ubank'] = $outcome['ubank'];
+    $_SESSION['realname'] = $outcome['realname'];
+    $_SESSION['realsurname'] = $outcome['realsurname'];
+    unset($_SESSION['err']);
+    header('Location: userpage.php');
+    exit();
+} 
+catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>

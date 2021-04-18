@@ -1,29 +1,56 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Tytuł strony</title>
+        <title>Online Shop</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css">
     </head>
 
     <body>
         <div id="header">
-            <h1>KSIĄŻKI</h1>
+            <h1>Products</h1>
             <div id="loginIcon">
-                <a href="login.php"><p>LOGIN</p></a>
+            <?php
+            session_start();
+            if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
+                echo '<p>Logged in as:';
+                echo $_SESSION['uname'];
+                echo '</p><br>';
+                echo '<a href="logout.php"><p>LOGOUT</p></a>';
+            } else {
+                echo '<a href="login.php"><p>LOGIN</p></a>';
+            }
+            ?>
             </div>
         </div>
         <div id="content">
-            
-            <div class=obrazki>
-                <p class="akapity">Content:</p>
-                <img src="https://bi.im-g.pl/im/9f/66/17/z24537759IH,Ksiazki-w-bibliotece.jpg">
-                
-            </div>
-            <div>
-                <p class="akapity">Następny Akapit</p>
-                <img src="https://dziendobry.tvn.pl/media/cache/content_cover/gettyimages-949118068-jpg.jpg">
-            </div>
+        <?php
+        require_once "connection.php";
+        try {
+            $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare('SELECT * FROM prod ORDER BY put_date DESC');
+            $stmt->execute();
+            if($stmt->rowCount() > 0) {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<div class='product'>";
+                    echo "<h2>";
+                    echo $row['name'];
+                    echo "</h2>";
+                    echo "<p>";
+                    echo $row['price'];
+                    echo "<p>";
+                    echo "</div>";
+                }
+            }
+        }
+        catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+        ?>
         </div>
         
         
