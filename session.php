@@ -14,9 +14,9 @@ try
     $stmt->execute(array($_POST['inlogin']));
     $outcome = $stmt->fetch();
     if($stmt->rowCount() > 0) {
-        $stmt = $conn->prepare('SELECT upass FROM users WHERE uname = ?');
-        $stmt->execute(array($_POST['inlogin']));
-        $hashpass = $stmt->fetch();
+        $stmt2 = $conn->prepare('SELECT upass FROM users WHERE uname = ?');
+        $stmt2->execute(array($_POST['inlogin']));
+        $hashpass = $stmt2->fetch();
         if(password_verify($_POST['inpass'], $hashpass['upass'])){
             $_SESSION['loggedin'] = true;
             $_SESSION['id'] = $outcome['id'];
