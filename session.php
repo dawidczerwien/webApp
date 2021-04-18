@@ -13,27 +13,29 @@ try
     $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ?');
     $stmt->execute(array($_POST['inlogin']));
     $outcome = $stmt->fetch();
-    if($stmt->rowCount() > 0)
-    {
+    if($stmt->rowCount() > 0) {
         $stmt = $conn->prepare('SELECT upass FROM users WHERE uname = ?');
         $stmt->execute(array($_POST['inlogin']));
-        $hass = $stmt->fetch();
-        $_SESSION['info'] = $hass['upass'];
-
-
-        $_SESSION['loggedin'] = true;
-        $_SESSION['id'] = $outcome['id'];
-		$_SESSION['ulogin'] = $outcome['ulogin'];
-        $_SESSION['ubank'] = $outcome['ubank'];
-        $_SESSION['realname'] = $outcome['realname'];
-        $_SESSION['realsurname'] = $outcome['realsurname'];
-        unset($_SESSION['err']);
-		header('Location: userpage.php');
-		exit();
+        $hashpass = $stmt->fetch();
+        if(password_verify($_POST['inpass'], $hashpass['upass'])){
+            $_SESSION['loggedin'] = true;
+            $_SESSION['id'] = $outcome['id'];
+            $_SESSION['ulogin'] = $outcome['ulogin'];
+            $_SESSION['ubank'] = $outcome['ubank'];
+            $_SESSION['realname'] = $outcome['realname'];
+            $_SESSION['realsurname'] = $outcome['realsurname'];
+            unset($_SESSION['err']);
+            header('Location: userpage.php');
+            exit();
+        } else {
+            $_SESSION['err'] = '<span style="color:red">Incorrect password!</span>';
+            header('Location: login.php');
+            exit();
+        }
     }
 	else 
 	{
-		$_SESSION['err'] = '<span style="color:red">Incorrect login and/or password!</span>';
+		$_SESSION['err'] = '<span style="color:red">Incorrect login!</span>';
 		header('Location: login.php');
 		exit();
 	}
