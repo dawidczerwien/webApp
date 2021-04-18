@@ -39,6 +39,10 @@ function dbCreateUser($conn, $login, $pass, $email) {
 }
 
 session_start();
+if((!isset($_POST['inlogin'])) || (!isset($_POST['inpass']))) {
+    header('Location: register.php');
+    exit();
+}
 require_once "connection.php";
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
