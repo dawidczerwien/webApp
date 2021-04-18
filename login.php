@@ -18,10 +18,14 @@ if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
   <input type="password" name="inpass" placeholder="Enter Password">
   <button type="submit">Login</button>
   <?php
-	if(isset($_SESSION['err']))	
-    echo $_SESSION['err']."<br>";
-  if(isset($_SESSION['mess']))	
+	if(isset($_SESSION['err']))	{
+		echo $_SESSION['err']."<br>";
+    unset( $_SESSION['err'])
+  }
+  if(isset($_SESSION['mess'])){
     echo $_SESSION['mess']."<br>";
+    unset($_SESSION['mess'])
+  }
   ?>
   <a href="register.php">Don't have account Yet <p>Sign up</p></a>
 </form>
