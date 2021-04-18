@@ -18,9 +18,9 @@ try
         $stmt = $conn->prepare('SELECT upass FROM users WHERE uname = ?');
         $stmt->execute(array($_POST['inlogin']));
         $hass = $stmt->fetch();
-        $_SESSION['info'] = $hass;
+        $_SESSION['info'] = $hass['upass'];
 
-        
+
         $_SESSION['loggedin'] = true;
         $_SESSION['id'] = $outcome['id'];
 		$_SESSION['ulogin'] = $outcome['ulogin'];
