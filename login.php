@@ -20,11 +20,11 @@ if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
   <?php
 	if(isset($_SESSION['err']))	{
 		echo $_SESSION['err']."<br>";
-    unset( $_SESSION['err'])
+    unset( $_SESSION['err']);
   }
   if(isset($_SESSION['mess'])){
     echo $_SESSION['mess']."<br>";
-    unset($_SESSION['mess'])
+    unset($_SESSION['mess']);
   }
   ?>
   <a href="register.php">Don't have account Yet <p>Sign up</p></a>

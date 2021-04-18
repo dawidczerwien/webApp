@@ -18,7 +18,7 @@
   <?php
 	if(isset($_SESSION['err']))	{
 		echo $_SESSION['err']."<br>";
-    unset( $_SESSION['err'])
+    unset( $_SESSION['err']);
   }
   ?>
   <button type="submit">Register</button>
