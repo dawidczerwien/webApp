@@ -14,8 +14,8 @@ function passwordStrenghtCheck($password) {
     $hasLowercase = preg_match('@[a-z]@', $password);
     $hasNumber    = preg_match('@[0-9]@', $password);
     $hasSpecialChars = preg_match('@[^\w]@', $password);
-    if (!$hasUppercase || !$hasLowercase || !$hasNumber || !$hasSpecialChars || strlen($password) < 8) return false;
-    return true;
+    if (!$hasUppercase || !$hasLowercase || !$hasNumber || !$hasSpecialChars || strlen($password) < 8) return true;
+    return false;
 }
 
 function dbEmailExistsCheck($conn, $email) {
@@ -54,7 +54,7 @@ try {
         header('Location: register.php');
         exit();
     }
-    if (passwordStrenghtCheck($_POST['inpass'])) {
+    if (!passwordStrenghtCheck($_POST['inpass'])) {
         $_SESSION['err'] = '<span style="color:red">Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character!</span>';
         header('Location: register.php');
         exit();
