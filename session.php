@@ -10,12 +10,17 @@ try
 {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $passhash = password_hash($_POST['inpass'], PASSWORD_BCRYPT);
-    $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ? and upass = ?');
-    $stmt->execute(array($_POST['inlogin'], $passhash));
+    $stmt = $conn->prepare('SELECT * FROM users WHERE uname = ?');
+    $stmt->execute(array($_POST['inlogin']));
     $outcome = $stmt->fetch();
     if($stmt->rowCount() > 0)
     {
+        $stmt = $conn->prepare('SELECT upass FROM users WHERE uname = ?');
+        $stmt->execute(array($_POST['inlogin']));
+        $hass = $stmt->fetch();
+        $_SESSION['info'] = $hass;
+
+        
         $_SESSION['loggedin'] = true;
         $_SESSION['id'] = $outcome['id'];
 		$_SESSION['ulogin'] = $outcome['ulogin'];

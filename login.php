@@ -21,6 +21,7 @@ if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true))
   <?php
 	if(isset($_SESSION['err']))	
 		echo $_SESSION['err'];
+  echo $_SESSION['info'];
   ?>
   <a href="register.php">Don't have account Yet <p>Sign up</p></a>
 </form>
