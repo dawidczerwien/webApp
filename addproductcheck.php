@@ -1,7 +1,7 @@
 <?php
 function dbCreateProduct($conn, $price, $name, $desc, $uid, $number) {
     $stmt = $conn->prepare("INSERT INTO prod (`price`, `name`, `description`, `user_id`, `amount`) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute(array($price, $price, $name, $desc, $uid, $number));
+    $stmt->execute(array($price, $name, $desc, $uid, $number));
 }
 session_start();
 if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
