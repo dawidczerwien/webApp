@@ -43,19 +43,6 @@ h1 {
     margin-top: 0;
 }
 
-.obrazki {
-    height: auto;
-}
-.obrazki img {
-    width: 100%;
-}
-#content div {
-    border-bottom: 1px solid gray;
-    margin-top: 40px;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10px;
-}
 #loginIcon {
     margin-left: auto; 
     margin-right: 0;
@@ -74,4 +61,65 @@ h1 {
     text-align: center;
     font-weight: 500;
     font-size: 13px;
+}
+
+* {
+    box-sizing: border-box;
+}
+.photo img {
+    width: 200px;
+    margin-bottom: 10px;
+}
+.title_cards {
+    text-align: center;
+}
+
+.cards {
+    background-color: gray;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card {
+    padding: 20px;
+    width: 25%;
+}
+
+.items_wrapper {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 230px;
+    min-height: 300px;
+    width: 100%;
+}
+
+.items_wrapper .title {
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.items_wrapper .description {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 1100px) {
+    .card {
+        width: 32%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .card {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .card {
+        width: 100%;
+    }
 }

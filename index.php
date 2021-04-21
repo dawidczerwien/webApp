@@ -27,6 +27,8 @@
             </div>
         </div>
         <div id="content">
+        <div class="cards">
+
         <?php
         require_once "connection.php";
         try {
@@ -36,13 +38,13 @@
             $stmt->execute();
             if($stmt->rowCount() > 0) {
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<div class='product'>";
-                    echo "<h2>";
-                    echo $row['name'];
-                    echo "</h2>";
-                    echo "<p>";
-                    echo $row['price'];
-                    echo "<p>";
+                    echo "<div class="card">";
+                    echo "<div class='items_wrapper'>";
+                    echo "<div class='photo'><img src='https://knowledgebanksociety.com/wp-content/uploads/2017/11/book-image-9.jpg'></div>";
+                    echo "<div class='title'>$row['name']</div>";
+                    echo "<div class='description'>Description of product</div>";
+                    echo "<div class='price'>$row['price']</div>";
+                    echo "</div>";
                     echo "</div>";
                 }
             }
@@ -51,6 +53,7 @@
             echo "Connection failed: " . $e->getMessage();
         }
         ?>
+        </div>
         </div>
         
         
