@@ -36,7 +36,9 @@ body {
 .container input[type= text]:focus, .container input[type = password]:focus {
     width: 230px;
 }
-
+::placeholder {
+    color: white;
+}
 .container button[type=submit] {
     border: 0;
     background: none;
