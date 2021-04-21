@@ -20,6 +20,7 @@
                 echo $_SESSION['uname'];
                 echo '</p><br>';
                 echo '<a href="logout.php"><p>LOGOUT</p></a>';
+                echo '<a href="userpage.php"><p>USER PAGE</p></a>';
             } else {
                 echo '<a href="login.php"><p>LOGIN</p></a>';
             }
