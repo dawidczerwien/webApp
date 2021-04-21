@@ -8,6 +8,12 @@ body {
     display: flex;
 }
 
+#content {
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: lightgray;
+}
+
 p {
     font-size: 18px;
     font-weight: bold;
