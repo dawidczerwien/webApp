@@ -15,20 +15,23 @@ echo "Your account's balance is: ".$_SESSION['ubank']."<br>";
   <link rel="stylesheet" type="text/css" href="styles/loginStyle.css">
 </head>
 <body>
+    <div class="container">
     <div>
-        <form class="container" action="index.php" method="POST">
+        <form class="text" action="index.php" method="POST">
             <button type="submit">Main Page</button>
         </form>
     </div>
     <div>
-        <form class="container" action="addproduct.php" method="POST">
+        <form class="text" action="addproduct.php" method="POST">
             <button type="submit">Add product for sale</button>
         </form>
     </div>
     <div>
-        <form class="container" action="logout.php" method="POST">
+        <form class="text" action="logout.php" method="POST">
             <button type="submit">Logout</button>
         </form>
     </div>
+    </div>
+    
 </body>
 </html>
