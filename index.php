@@ -44,7 +44,8 @@
                     echo "<div class='photo'><img src='https://knowledgebanksociety.com/wp-content/uploads/2017/11/book-image-9.jpg'></div>";
                     echo "<div class='title'>".$row['name']."</div>";
                     echo "<div class='description'>".$row['description']."</div>";
-                    echo "<div class='price'>".$row['price']."</div>";
+                    echo "<div class='price'>".$row['price'].".00 PLN</div>";
+                    echo "<div class='price'>".$row['put_date']."</div>";
                     echo "</div>";
                     echo "</div>";
                 }
