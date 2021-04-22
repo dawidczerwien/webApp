@@ -24,6 +24,9 @@
   <button type="submit">Register</button>
   <a href="login.php">Already have account <p>Sign in </p></a>
 </form>
+<form class="text" action="index.php" method="POST">
+            <button type="submit">Main Page</button>
+</form>
 
 
 
