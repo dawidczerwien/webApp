@@ -1,8 +1,15 @@
 <?php
 session_start();
-if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
+if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESSION['role'] != "Admin") ) {
     header('Location: login.php');
     exit();
+}
+
+function getAllTableData($conn, $dbname) {
+    $stmt = $conn->prepare('SELECT * FROM ?');
+    $stmt->execute(array($dbname));
+    if($stmt->rowCount() == 0) return $stmt;
+    return false;
 }
 ?>
 
@@ -18,12 +25,6 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
 </head>
 <body>
 <div class="container">
-<div>
-        <form class="text" action="index.php" method="POST">
-            <button type="submit">Back to main page</button>
-        </form>
-    </div>
-    <br><br>
     <h2>Administrative Tasks</h2>
     <div>
         <form class="text" action="index.php" method="POST">
@@ -35,6 +36,15 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
             <button type="submit">Modify products in database</button>
         </form>
     </div>
+
+    <br><br>
+    
+    <h2>User Tasks</h2>
+    <div>
+        <form class="text" action="index.php" method="POST">
+            <button type="submit">Back to main page</button>
+        </form>
+    </div>
 </div>
 
 <?php
@@ -43,9 +53,9 @@ try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    echo "<div>";
     echo "<h1>ALL USER DATA</h1>";
-    $stmt = $conn->prepare('SELECT * FROM users ORDER BY id DESC');
-    $stmt->execute();
+    $stmt = getAllTableData($conn, "users");
     if($stmt->rowCount() > 0) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo $row['id']."     ";
@@ -58,10 +68,11 @@ try {
             echo "<br><br>";
         }
     }
+    echo "</div>";
 
+    echo "<div>";
     echo "<h1>ALL PRODUCTS DATA</h1>";
-    $stmt = $conn->prepare('SELECT * FROM prod ORDER BY put_date DESC');
-    $stmt->execute();
+    $stmt = getAllTableData($conn, "prod");
     if($stmt->rowCount() > 0) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo $row['id']."     ";
@@ -74,6 +85,7 @@ try {
             echo "<br><br>";
         }
     }
+    echo "</div>";
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }

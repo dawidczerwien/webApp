@@ -21,6 +21,15 @@ echo "Your account's balance is: ".$_SESSION['ubank']."<br>";
             <button type="submit">Main Page</button>
         </form>
     </div>
+    <?php 
+        if  ($_SESSION['role'] == "Admin") {
+            echo "<div> ";
+            echo "<form class='text' action='admin.php' method='POST'>";
+            echo "<button type='submit'>Admin Page</button>";
+            echo "</form>";
+            echo "</div>";
+        }
+    ?>
     <div>
         <form class="text" action="addproduct.php" method="POST">
             <button type="submit">Add product for sale</button>
