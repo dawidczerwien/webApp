@@ -4,13 +4,6 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     header('Location: login.php');
     exit();
 }
-
-function getAllTableData($conn, $dbname) {
-    $stmt = $conn->prepare('SELECT * FROM ?');
-    $stmt->execute(array($dbname));
-    if($stmt->rowCount() == 0) return $stmt;
-    return false;
-}
 ?>
 
 
@@ -55,12 +48,13 @@ try {
 
     echo "<div>";
     echo "<h1>ALL USER DATA</h1>";
-    $stmt = getAllTableData($conn, "users");
+    $stmt = $conn->prepare('SELECT * FROM users ORDER BY id DESC');
+    $stmt->execute();
     if($stmt->rowCount() > 0) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo $row['id']."     ";
             echo $row['uname']."     ";
-            echo $row['upass']."     ";
+            echo $row['role']."     ";
             echo $row['ubank']."     ";
             echo $row['realname']."     ";
             echo $row['realsurname']."     ";
@@ -72,7 +66,8 @@ try {
 
     echo "<div>";
     echo "<h1>ALL PRODUCTS DATA</h1>";
-    $stmt = getAllTableData($conn, "prod");
+    $stmt = $conn->prepare('SELECT * FROM prod ORDER BY put_date DESC');
+    $stmt->execute();
     if($stmt->rowCount() > 0) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo $row['id']."     ";
