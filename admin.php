@@ -4,6 +4,40 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
     header('Location: login.php');
     exit();
 }
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/loginStyle.css">
+    <title>Main Admin Panel</title>
+</head>
+<body>
+<div class="container">
+<div>
+        <form class="text" action="index.php" method="POST">
+            <button type="submit">Back to main page</button>
+        </form>
+    </div>
+    <br><br>
+    <h2>Administrative Tasks</h2>
+    <div>
+        <form class="text" action="index.php" method="POST">
+            <button type="submit">Modify user accounts</button>
+        </form>
+    </div>
+    <div>
+        <form class="text" action="index.php" method="POST">
+            <button type="submit">Modify products in database</button>
+        </form>
+    </div>
+</div>
+
+<?php
 require_once "connection.php";
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
@@ -24,6 +58,7 @@ try {
             echo "<br><br>";
         }
     }
+
     echo "<h1>ALL PRODUCTS DATA</h1>";
     $stmt = $conn->prepare('SELECT * FROM prod ORDER BY put_date DESC');
     $stmt->execute();
@@ -44,3 +79,5 @@ try {
 }
 
 ?>
+</body>
+</html>
