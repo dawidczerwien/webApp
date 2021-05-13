@@ -33,6 +33,8 @@ try {
     $dataArray = $stmt->fetchAll();
     $dataJSON = json_encode($dataArray);
     print(sayHello());
+    print(sayHello());
+    
 
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
