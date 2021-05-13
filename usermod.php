@@ -30,6 +30,13 @@ try {
     echo "<h1>ALL USER DATA</h1>";
     $stmt = $conn->prepare('SELECT * FROM users ORDER BY id DESC');
     $stmt->execute();
+    $dataArray = $stmt->fetchAll();
+    print_r($dataArray);
+    echo "+++++++++++++++++++++++++++++++++++++";
+    print_r($dataArray[0]);
+    echo "+++++++++++++++++++++++++++++++++++++";
+    print_r($dataArray[0]['uname']);
+    echo "+++++++++++++++++++++++++++++++++++++";
     if($stmt->rowCount() > 0) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo "ID:".$row['id']."     ";
