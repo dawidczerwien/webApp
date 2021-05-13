@@ -30,28 +30,17 @@ try {
     echo "<h1>ALL USER DATA</h1>";
     $stmt = $conn->prepare('SELECT * FROM users ORDER BY id DESC');
     $stmt->execute();
-    if($stmt->rowCount() > 0) {
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo "ID:".$row['id']."     ";
-            echo "Login:".$row['uname']."     ";
-            echo "Role:".$row['role']."     ";
-            echo "Balance:".$row['ubank']."     ";
-            echo "Name:".$row['realname']."     ";
-            echo "Surname:".$row['realsurname']."     ";
-            echo "Email:".$row['uemail']."     ";
-            echo "<div> ";
-            echo "<form class='text' action='index.php' method='POST'>";
-            echo "<button type='submit'>Modify</button>";
-            echo "</form>";
-            echo "</div>";
-            echo "=========================================";
-            echo "<br><br>";
-        }
-    }
-    echo "</div>";
+    $dataArray = $stmt->fetchAll();
+    $dataJSON = json_encode($dataArray);
+    
+
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
+<script>
+var data = <?php echo $dataJSON; ?>;
+console.log( data );
+</script>
 </body>
 </html>
