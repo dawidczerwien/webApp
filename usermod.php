@@ -39,7 +39,7 @@ try {
 }
 ?>
 <script>
-console.log( <?php print_r($dataArray); ?> );
+console.log( <?php json_encode($dataArray); ?> );
 </script>
 </body>
 </html>
