@@ -44,6 +44,7 @@ try {
     $_SESSION['ubank'] = $outcome['ubank'];
     $_SESSION['realname'] = $outcome['realname'];
     $_SESSION['realsurname'] = $outcome['realsurname'];
+    $_SESSION['role'] = $outcome['role'];
     unset($_SESSION['err']);
     header('Location: userpage.php');
     exit();

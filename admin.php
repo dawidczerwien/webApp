@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
+if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESSION['role'] != "Admin") ) {
     header('Location: login.php');
     exit();
 }
@@ -18,12 +18,6 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
 </head>
 <body>
 <div class="container">
-<div>
-        <form class="text" action="index.php" method="POST">
-            <button type="submit">Back to main page</button>
-        </form>
-    </div>
-    <br><br>
     <h2>Administrative Tasks</h2>
     <div>
         <form class="text" action="index.php" method="POST">
@@ -33,6 +27,15 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
     <div>
         <form class="text" action="index.php" method="POST">
             <button type="submit">Modify products in database</button>
+        </form>
+    </div>
+
+    <br><br>
+    
+    <h2>User Tasks</h2>
+    <div>
+        <form class="text" action="index.php" method="POST">
+            <button type="submit">Back to main page</button>
         </form>
     </div>
 </div>
