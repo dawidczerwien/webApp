@@ -32,8 +32,6 @@ try {
     $stmt->execute();
     $dataArray = $stmt->fetchAll();
     $dataJSON = json_encode($dataArray);
-    print(sayHello());
-    print(sayHello());
     
 
 } catch(PDOException $e) {
