@@ -20,12 +20,12 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
 <div class="container">
     <h2>Administrative Tasks</h2>
     <div>
-        <form class="text" action="index.php" method="POST">
+        <form class="text" action="usermod.php" method="POST">
             <button type="submit">Modify user accounts</button>
         </form>
     </div>
     <div>
-        <form class="text" action="index.php" method="POST">
+        <form class="text" action="prodmod.php" method="POST">
             <button type="submit">Modify products in database</button>
         </form>
     </div>
