@@ -35,7 +35,12 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     <h2>User Tasks</h2>
     <div>
         <form class="text" action="index.php" method="POST">
-            <button type="submit">Back to main page</button>
+            <button type="submit">Back to User Page</button>
+        </form>
+    </div>
+    <div>
+        <form class="text" action="index.php" method="POST">
+            <button type="submit">Back to Main Page</button>
         </form>
     </div>
 </div>

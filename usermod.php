@@ -16,6 +16,11 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     <title>Modify Users</title>
 </head>
 <body>
+<div>
+    <form class="text" action="index.php" method="POST">
+        <button type="submit">Back to User Page</button>
+    </form>
+</div>
 <?php
 require_once "connection.php";
 try {
