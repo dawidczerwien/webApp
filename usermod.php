@@ -31,6 +31,7 @@ try {
     $stmt = $conn->prepare('SELECT * FROM users ORDER BY id DESC');
     $stmt->execute();
     $dataArray = $stmt->fetchAll();
+    $dataJSON = json_encode($dataArray);
     // Pierwszy uzytkownik w bazie danych (pierwszy element tablicy), i wyciagamy jego uname
     print_r($dataArray[0]['uname']);
 
@@ -39,7 +40,7 @@ try {
 }
 ?>
 <script>
-console.log( <?php json_encode($dataArray[0]); ?> );
+console.log( <?php echo $dataArray; ?> );
 </script>
 </body>
 </html>
