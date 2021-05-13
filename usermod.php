@@ -31,34 +31,15 @@ try {
     $stmt = $conn->prepare('SELECT * FROM users ORDER BY id DESC');
     $stmt->execute();
     $dataArray = $stmt->fetchAll();
-    print_r($dataArray);
-    echo "+++++++++++++++++++++++++++++++++++++";
-    print_r($dataArray[0]);
-    echo "+++++++++++++++++++++++++++++++++++++";
+    // Pierwszy uzytkownik w bazie danych (pierwszy element tablicy), i wyciagamy jego uname
     print_r($dataArray[0]['uname']);
-    echo "+++++++++++++++++++++++++++++++++++++";
-    if($stmt->rowCount() > 0) {
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo "ID:".$row['id']."     ";
-            echo "Login:".$row['uname']."     ";
-            echo "Role:".$row['role']."     ";
-            echo "Balance:".$row['ubank']."     ";
-            echo "Name:".$row['realname']."     ";
-            echo "Surname:".$row['realsurname']."     ";
-            echo "Email:".$row['uemail']."     ";
-            echo "<div> ";
-            echo "<form class='text' action='index.php' method='POST'>";
-            echo "<button type='submit'>Modify</button>";
-            echo "</form>";
-            echo "</div>";
-            echo "=========================================";
-            echo "<br><br>";
-        }
-    }
-    echo "</div>";
+
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
+<script>
+console.log( <?php print_r($dataArray); ?> );
+</script>
 </body>
 </html>
