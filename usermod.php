@@ -40,7 +40,7 @@ try {
 }
 ?>
 <script>
-var data = <?php echo $dataArray; ?>;
+var data = <?php echo $dataJSON; ?>;
 console.log( data );
 </script>
 </body>
