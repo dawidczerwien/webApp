@@ -30,28 +30,15 @@ try {
     echo "<h1>ALL PRODUCTS DATA</h1>";
     $stmt = $conn->prepare('SELECT * FROM prod ORDER BY put_date DESC');
     $stmt->execute();
-    if($stmt->rowCount() > 0) {
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo "ID:".$row['id']."     ";
-            echo "User ID:".$row['user_id']."     ";
-            echo "Price:".$row['price']."     ";
-            echo "Amount:".$row['amount']."     ";
-            echo "Product Name:".$row['name']."     ";
-            echo "Description:".$row['description']."     ";
-            echo "Put date:".$row['put_date']."     ";
-            echo "<div> ";
-            echo "<form class='text' action='index.php' method='POST'>";
-            echo "<button type='submit'>Modify</button>";
-            echo "</form>";
-            echo "</div>";
-            echo "=========================================";
-            echo "<br><br>";
-        }
-    }
-    echo "</div>";
+    $dataArray = $stmt->fetchAll();
+    $dataJSON = json_encode($dataArray);
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
+<script>
+var data = <?php echo $dataJSON; ?>;
+console.log( data );
+</script>
 </body>
 </html>

@@ -32,8 +32,7 @@ try {
     $stmt->execute();
     $dataArray = $stmt->fetchAll();
     $dataJSON = json_encode($dataArray);
-    // Pierwszy uzytkownik w bazie danych (pierwszy element tablicy), i wyciagamy jego uname
-    print_r($dataArray[0]['uname']);
+    print(sayHello());
 
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
