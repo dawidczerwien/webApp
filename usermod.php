@@ -40,7 +40,8 @@ try {
 }
 ?>
 <script>
-console.log( <?php echo $dataArray; ?> );
+var data = <?php echo $dataArray; ?>;
+console.log( data );
 </script>
 </body>
 </html>
