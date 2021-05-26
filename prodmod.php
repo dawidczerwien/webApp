@@ -44,7 +44,7 @@ let list = document.getElementById('products-list');
 let element = document.createElement('li');
 var data = <?php echo $dataJSON; ?>;
 console.log( data );
-console.log( data[0] );
+console.log( "test" );
 for(var i=0; i<data.length; i++){
     console.log(data[i]);
     element = document.createElement('li');
