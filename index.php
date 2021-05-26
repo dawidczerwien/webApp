@@ -11,7 +11,7 @@
 
     <body>
         <div id="header">
-            <h1>Products</h1>
+            <h1>products</h1>
             <div id="loginIcon">
             <?php
             session_start();
