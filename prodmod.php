@@ -49,7 +49,7 @@ for(var i=0; i<data.length; i++){
     console.log('test; ');
     console.log(data[i]);
     console.log(data[i]['name']);
-    element.appendChild('some',li);
+    element.appendChild(document.createElement("p").textContent('some'));
 
 }
 
