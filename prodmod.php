@@ -40,9 +40,14 @@ try {
 var data = <?php echo $dataJSON; ?>;
 console.log( data );
 console.log( data[0] );
-data.foreach(key => {
+for(var i=0; i<data.length; i++){
+    console.log('test; ');
+    console.log(data[i]);
+    data[i].foreach(key => {
     console.log(key);
 })
+}
+
 </script>
 </body>
 </html>
