@@ -39,6 +39,9 @@ try {
 <script>
 var data = <?php echo $dataJSON; ?>;
 console.log( data );
+data.foreach(key => {
+    console.log(key);
+})
 </script>
 </body>
 </html>
