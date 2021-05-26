@@ -43,9 +43,8 @@ console.log( data[0] );
 for(var i=0; i<data.length; i++){
     console.log('test; ');
     console.log(data[i]);
-    data[i].foreach(key => {
-    console.log(key);
-})
+    console.log(data[i]['name']);
+
 }
 
 </script>
