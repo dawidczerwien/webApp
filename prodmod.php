@@ -21,6 +21,9 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
         <button type="submit">Back to User Page</button>
     </form>
 </div>
+<ul id="products-list">
+    <li>Test</li>
+</ul>
 <?php
 require_once "connection.php";
 try {
@@ -37,6 +40,8 @@ try {
 }
 ?>
 <script>
+const element = document.getElementById('products-list');
+
 var data = <?php echo $dataJSON; ?>;
 console.log( data );
 console.log( data[0] );
@@ -44,6 +49,7 @@ for(var i=0; i<data.length; i++){
     console.log('test; ');
     console.log(data[i]);
     console.log(data[i]['name']);
+    element.appendChild('some',li);
 
 }
 
