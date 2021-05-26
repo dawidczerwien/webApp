@@ -39,6 +39,7 @@ try {
 <script>
 var data = <?php echo $dataJSON; ?>;
 console.log( data );
+console.log( data[0] );
 data.foreach(key => {
     console.log(key);
 })
