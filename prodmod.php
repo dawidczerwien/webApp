@@ -47,7 +47,7 @@ console.log( data );
 console.log( data[0] );
 for(var i=0; i<data.length; i++){
     console.log(data[i]);
-    element.appendChild(document.createTextnode("som"));
+    element.appendChild(document.createTextNode("som"));
     list.appendChild(element);
 
 }
