@@ -47,9 +47,8 @@ console.log( data );
 console.log( "test" );
 for(var i=0; i<data.length; i++){
     console.log(data[i]);
-    element = document.createElement('a');
-    //element.appendChild(document.createElement('li'));
-    element.appendChild(document.createTextNode(data[i]['name'] + 'id: ' + data[i]['id']));
+    element = document.createElement('li');
+    element.appendChild(document.createTextNode('id: ' + data[i]['id'] + data[i]['name'] + "  "+data[i]['description']+" "+data[i]['price']+" PLN"));
     list.appendChild(element);
 
 }
