@@ -15,6 +15,7 @@ try {
     dbCreateProduct($conn, $_POST['inprice'], $_POST['inname'], $_POST['indesc'], $_SESSION['id'], $_POST['innumber']);
     unset($_SESSION['err']);
     $_SESSION['mess'] = '<span style="color:green">New user created successfully!</span>';
+    ob_flush();
     header('Location: index.php');
     exit();
 
