@@ -21,16 +21,13 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
         <button type="submit">Back to User Page</button>
     </form>
 </div>
-
-<h1>ALL PRODUCTS DATA</h1>
-<ul id="products-list">
-</ul>
 <?php
 require_once "connection.php";
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+    echo "<div>";
+    echo "<h1>ALL PRODUCTS DATA</h1>";
     $stmt = $conn->prepare('SELECT * FROM prod ORDER BY put_date DESC');
     $stmt->execute();
     $dataArray = $stmt->fetchAll();
@@ -40,19 +37,8 @@ try {
 }
 ?>
 <script>
-let list = document.getElementById('products-list');
-let element = document.createElement('li');
 var data = <?php echo $dataJSON; ?>;
 console.log( data );
-console.log( "test" );
-for(var i=0; i<data.length; i++){
-    console.log(data[i]);
-    element = document.createElement('li');
-    element.appendChild(document.createTextNode('id: ' + data[i]['id'] + data[i]['name'] + "  "+data[i]['description']+" "+data[i]['price']+" PLN"));
-    list.appendChild(element);
-
-}
-
 </script>
 </body>
 </html>

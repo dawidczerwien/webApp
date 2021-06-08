@@ -9,9 +9,9 @@ body {
 }
 
 #content {
-    background-color: white;
-    max-width: 1300px;
-    margin: auto;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: lightgray;
 }
 
 p {
@@ -70,9 +70,6 @@ h1 {
 * {
     box-sizing: border-box;
 }
-.photo {
-    text-align: center;
-}
 .photo img {
     width: 200px;
     margin-bottom: 10px;
@@ -82,7 +79,7 @@ h1 {
 }
 
 .cards {
-    background-color: white;
+    background-color: gray;
     padding: 30px;
     width: 100%;
     display: flex;

@@ -18,7 +18,7 @@
             if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
                 echo '<p>Logged in as:  ';
                 echo "<b>".$_SESSION['uname']."</b>";
-                echo '</p>';
+                echo '</p><br>';
                 echo '<a href="logout.php"><p>LOGOUT</p></a>';
                 echo '<a href="userpage.php"><p>USER PAGE</p></a>';
             } else {
