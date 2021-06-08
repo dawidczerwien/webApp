@@ -74,7 +74,6 @@ try {
     }
     if (!dbEmailExistsCheck($conn, $_POST['inEmail'])) {
         $_SESSION['err'] = '<span style="color:red">User with such email address already exists!</span>';
-		ob_flush();
         header('Location: register.php');
 		exit();
     }
