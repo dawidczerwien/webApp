@@ -50,34 +50,38 @@ try {
 
     if (!passwordsAreTheSameCheck($_POST['inpass'], $_POST['inConfirmPass'])) {
         $_SESSION['err'] = '<span style="color:red">Passwords are not the same!</span>';
+        ob_flush();
         header('Location: register.php');
         exit();
     }
     if (!emailFormatCheck($_POST['inEmail'])) {
         $_SESSION['err'] = '<span style="color:red">Invalid email format!</span>';
+        ob_flush();
         header('Location: register.php');
         exit();
     }
     if (!passwordStrenghtCheck($_POST['inpass'])) {
         $_SESSION['err'] = '<span style="color:red">Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character!</span>';
+        ob_flush();
         header('Location: register.php');
         exit();
     }
     if (!dbLoginExistsCheck($conn, $_POST['inlogin'])) {
         $_SESSION['err'] = '<span style="color:red">User with such login already exists!</span>';
-		header('Location: register.php');
+		ob_flush();
+        header('Location: register.php');
 		exit();
     }
     if (!dbEmailExistsCheck($conn, $_POST['inEmail'])) {
         $_SESSION['err'] = '<span style="color:red">User with such email address already exists!</span>';
-		header('Location: register.php');
+		ob_flush();
+        header('Location: register.php');
 		exit();
     }
     
     dbCreateUser($conn, $_POST['inlogin'], $_POST['inpass'], $_POST['inEmail']);
     unset($_SESSION['err']);
-    $_SESSION['mess'] = '<span style="color:green">New user created successfully!</span>';
-    header('Location: login.php');
+    $1.php');
     exit();
 
 } catch(PDOException $e) {
