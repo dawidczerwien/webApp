@@ -81,7 +81,8 @@ try {
     
     dbCreateUser($conn, $_POST['inlogin'], $_POST['inpass'], $_POST['inEmail']);
     unset($_SESSION['err']);
-    $1.php');
+    $_SESSION['mess'] = '<span style="color:green">New user created successfully!</span>';
+    header('Location: login.php');
     exit();
 
 } catch(PDOException $e) {

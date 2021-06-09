@@ -8,7 +8,6 @@
         <title>Online Shop</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css">
     </head>
-
     <body>
         <div id="header">
             <h1>Products</h1>
@@ -29,7 +28,6 @@
         </div>
         <div id="content">
         <div class="cards">
-
         <?php
         require_once "connection.php";
         try {
@@ -57,7 +55,5 @@
         ?>
         </div>
         </div>
-        
-        
     </body>
 </html>
