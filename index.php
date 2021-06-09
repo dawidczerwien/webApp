@@ -47,7 +47,7 @@
                     echo "<div class='price'>".$row['price'].".00 PLN</div>";
                     echo "<div class='price'>".$row['put_date']."</div>";
                     if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
-                        echo "<form class='text' action='cart.php' method='POST'>";
+                        echo "<form class='text' action='cartadd.php' method='POST'>";
                         echo "<input type='hidden' id='PID' name='PID' value=".$row['id'].">";
                         echo "<button type='submit'>Add to cart</button>";
                         echo "</form>";
