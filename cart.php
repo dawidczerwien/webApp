@@ -13,17 +13,20 @@ function addProduct($conn, $UID, $PID) {
 
 
 require_once "connection.php";
-echo "USER's PID:".$_POST['PID']."<br><br>";
+echo "Products PID:".$_POST['PID']."<br><br>";
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $resp = addProduct($conn, $_SESSION['id'], $_POST['PID']);
-    echo $resp;
+    if (isset($_POST['PID'])){
+        $resp = addProduct($conn, $_SESSION['id'], $_POST['PID']);
+        echo $resp;
+        unset($_POST['PID']);
+    }
     $stmt = $conn->prepare('SELECT * FROM cart WHERE userid = ?');
     $stmt->execute(array($_SESSION['id']));
     if($stmt->rowCount() > 0) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo $row['prodid'];
+            echo "Product id:".$row['prodid']."<br>";
         }
     }
 }
