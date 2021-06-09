@@ -26,13 +26,11 @@ try {
     
     if(dbLoginExistsCheck($conn, $_POST['inlogin'])) {
         $_SESSION['err'] = '<span style="color:red">User doesn\'t exist!</span>';
-		ob_flush();
         header('Location: login.php');
         exit();
     }
     if(!dbPasswordCheck($conn, $_POST['inlogin'], $_POST['inpass'])) {
         $_SESSION['err'] = '<span style="color:red">Incorrect password!</span>';
-		ob_flush();
         header('Location: login.php');
         exit();
     }
@@ -48,7 +46,6 @@ try {
     $_SESSION['realsurname'] = $outcome['realsurname'];
     $_SESSION['role'] = $outcome['role'];
     unset($_SESSION['err']);
-	ob_flush();
     header('Location: userpage.php');
     exit();
 } 
@@ -56,3 +53,4 @@ catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
+

@@ -75,3 +75,7 @@ body {
 .container a:hover {
     color: rgb(163, 163, 163);
 }
+
+#products-list {
+    text-align: left;
+}

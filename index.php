@@ -8,6 +8,7 @@
         <title>Online Shop</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css">
     </head>
+
     <body>
         <div id="header">
             <h1>Products</h1>
@@ -17,7 +18,7 @@
             if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
                 echo '<p>Logged in as:  ';
                 echo "<b>".$_SESSION['uname']."</b>";
-                echo '</p><br>';
+                echo '</p>';
                 echo '<a href="logout.php"><p>LOGOUT</p></a>';
                 echo '<a href="userpage.php"><p>USER PAGE</p></a>';
             } else {
@@ -28,6 +29,7 @@
         </div>
         <div id="content">
         <div class="cards">
+
         <?php
         require_once "connection.php";
         try {
@@ -55,5 +57,7 @@
         ?>
         </div>
         </div>
+        
+        
     </body>
 </html>
