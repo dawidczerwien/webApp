@@ -43,7 +43,12 @@ try {
 
 let list = document.getElementById('products-list');
 var data = <?php echo $dataJSON; ?>;
-
+<?php
+if(isset($_SESSION['mess'])){
+    echo $_SESSION['mess'];
+    unset($_SESSION['mess']);
+}
+?>
 for(var i=0; i<data.length; i++){
     var li = document.createElement("li");
     li.appendChild(document.createTextNode('id: ' + data[i]['id'] + data[i]['name'] + "  "+data[i]['description']+" "+data[i]['price']+" PLN"));
