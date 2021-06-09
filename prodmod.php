@@ -50,7 +50,7 @@ console.log( "test" );
 for(var i=0; i<data.length; i++){
     //console.log(data[i]);
     //element = document.createElement('li');
-    element.appendChild(document.createTextNode('id: ' + data[i]['id'] + data[i]['name'] + "  "+data[i]['description']+" "+data[i]['price']+" PLN"));
+    //element.appendChild(document.createTextNode('id: ' + data[i]['id'] + data[i]['name'] + "  "+data[i]['description']+" "+data[i]['price']+" PLN"));
     //list.appendChild(element);
 
     var li = document.createElement("li");
