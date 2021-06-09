@@ -92,7 +92,12 @@ try {
 <script>
 var data = <?php echo $dataJSON; ?>;
 let list = document.getElementById('products-list');
-
+<?php
+if(isset($_SESSION['mess'])){
+    echo $_SESSION['mess'];
+    unset($_SESSION['mess']);
+}
+?>
 for(var i=0; i<data.length; i++){
 
     var li = document.createElement("li");
