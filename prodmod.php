@@ -70,7 +70,7 @@ for(var i=0; i<data.length; i++){
             form.appendChild(hiddenInput);
 
             button.setAttribute("id", i);
-            button.setAttribute("type", "button");
+            button.setAttribute("type", "submit");
             button.value = "Delete";
             form.appendChild(button);
             li.appendChild(form);
