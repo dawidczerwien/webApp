@@ -14,7 +14,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     dbCreateProduct($conn, $_POST['inprice'], $_POST['inname'], $_POST['indesc'], $_SESSION['id'], $_POST['innumber']);
     unset($_SESSION['err']);
-    $_SESSION['mess'] = '<span style="color:green">New user created successfully!</span>';
+    $_SESSION['mess'] = '<span style="color:green">New product added successfully!</span>';
     header('Location: index.php');
     exit();
 
