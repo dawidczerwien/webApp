@@ -29,8 +29,16 @@ try {
                 }
             }
         }
+        echo "<button>Payment</button>";
     }
-    echo "<button>Payment</button>";
+    else {
+        echo "<div> ";
+        echo "Your cart is empty!"
+        echo "<form class='text' action='index.php' method='POST'>";
+        echo "<button type='submit'>Go back</button>";
+        echo "</form>";
+        echo "</div>";
+    }
 }
 catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
