@@ -66,7 +66,7 @@ for(var i=0; i<data.length; i++){
             hiddenInput.setAttribute("type", "hidden");
             hiddenInput.setAttribute("id", i);
             hiddenInput.setAttribute("name", i);
-            hiddenInput.setAttribute("value", i);
+            hiddenInput.setAttribute("value", data[i]['id']);
             form.appendChild(hiddenInput);
 
             button.setAttribute("id", i);
@@ -74,7 +74,7 @@ for(var i=0; i<data.length; i++){
             button.value = "Delete";
             form.appendChild(button);
             li.appendChild(form);
-            form.submit();
+            //form.submit();
             li.setAttribute("id", i);
             list.appendChild(li);
             list.appendChild(li);
