@@ -49,7 +49,7 @@
                     if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
                         echo "<form class='text' action='cartadd.php' method='POST'>";
                         echo "<input type='hidden' id='PID' name='PID' value=".$row['id'].">";
-                        echo "<button type='submit'>Add to cart</button>";
+                        echo "<button id='btn_cart' type='submit'>Add to cart</button>";
                         echo "</form>";
                     }
                     echo "</div>";

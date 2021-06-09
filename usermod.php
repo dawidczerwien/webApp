@@ -93,7 +93,7 @@ try {
 ?>
 <script>
 var data = <?php echo $dataJSON; ?>;
-let list = document.getElementById('products-list');
+let list = document.getElementById('list');
 <?php
 if(isset($_SESSION['mess'])){
     echo $_SESSION['mess'];
