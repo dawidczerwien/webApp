@@ -31,6 +31,16 @@ echo "Your account's balance is: ".$_SESSION['ubank']."<br>";
         }
     ?>
     <div>
+    <?php
+	if(isset($_SESSION['err']))	{
+		echo $_SESSION['err']."<br>";
+    unset( $_SESSION['err']);
+    }
+    if(isset($_SESSION['mess'])){
+        echo $_SESSION['mess']."<br>";
+        unset($_SESSION['mess']);
+    }
+    ?>
         <form class="text" action="addproduct.php" method="POST">
             <button type="submit">Add product for sale</button>
         </form>
