@@ -46,10 +46,12 @@
                     echo "<div class='description'>".$row['description']."</div>";
                     echo "<div class='price'>".$row['price'].".00 PLN</div>";
                     echo "<div class='price'>".$row['put_date']."</div>";
-                    echo "<form class='text' action='cart.php' method='POST'>";
-                    echo "<input type='hidden' id='PID' name='PID' value=".$row['id'].">";
-                    echo "<button type='submit'>Add to cart</button>";
-                    echo "</form>";
+                    if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
+                        echo "<form class='text' action='cart.php' method='POST'>";
+                        echo "<input type='hidden' id='PID' name='PID' value=".$row['id'].">";
+                        echo "<button type='submit'>Add to cart</button>";
+                        echo "</form>";
+                    }
                     echo "</div>";
                     echo "</div>";
                 }
