@@ -30,6 +30,7 @@ try {
             }
         }
     }
+    echo "<button>Payment</button>";
 }
 catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();

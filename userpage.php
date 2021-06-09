@@ -40,6 +40,11 @@ echo "Your account's balance is: ".$_SESSION['ubank']."<br>";
             <button type="submit">Logout</button>
         </form>
     </div>
+    <div>
+        <form class="text" action="usercart.php" method="POST">
+            <button type="submit">Your cart</button>
+        </form>
+    </div>
     </div>
 </body>
 </html>
