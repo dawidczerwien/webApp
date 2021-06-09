@@ -112,7 +112,7 @@ for(var i=0; i<data.length; i++){
 
             hiddenInput.setAttribute("type", "hidden");
             hiddenInput.setAttribute("id", "id");
-            hiddenInput.setAttribute("name", i);
+            hiddenInput.setAttribute("name", "id");
             hiddenInput.setAttribute("value", data[i]['id']);
             form.appendChild(hiddenInput);
 
