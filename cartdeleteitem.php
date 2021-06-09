@@ -7,10 +7,10 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
 
 require_once "connection.php";
 try {
-    if(!isset($_POST['PID']){
+    if(!isset($_POST['PID'])){
         header('Location: login.php');
         exit();
-    })
+    }
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $conn->prepare('DELETE FROM cart WHERE prodid = ? AND userid = ?');
