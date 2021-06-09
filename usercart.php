@@ -26,6 +26,7 @@ try {
                     echo "id:".$row2['id']."<br>";
                     echo "price per item:".$row2['price']."<br>";
                     echo "name:".$row2['name']."<br>";
+                    echo "<hr>";
                 }
             }
         }
