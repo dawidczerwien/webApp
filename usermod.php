@@ -43,7 +43,6 @@ try {
 ?>
 <script>
 var data = <?php echo $dataJSON; ?>;
-console.log( data );
 let list = document.getElementById('products-list');
 
 for(var i=0; i<data.length; i++){
@@ -55,7 +54,7 @@ for(var i=0; i<data.length; i++){
             var button = document.createElement("input");
 
             form.method = "POST";
-            form.action = "deleteprod.php";
+            form.action = "userban.php";
 
 
             hiddenInput.setAttribute("type", "hidden");
@@ -69,7 +68,6 @@ for(var i=0; i<data.length; i++){
             button.value = "Deactivate accout";
             form.appendChild(button);
             li.appendChild(form);
-            //form.submit();
             li.setAttribute("id", i);
             list.appendChild(li);
             list.appendChild(li);
