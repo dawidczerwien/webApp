@@ -37,7 +37,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
             width: 200px;
         }
 
-        input[type=submit]:hover {
+        .btn_delete [type=submit]:hover {
             width: 250px;
             background-color: red;
         }
@@ -61,6 +61,12 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
 
         li:last-child {
             border: none;
+        }
+        .product_wrapper{
+            border-radius: 25px;
+            border: 2px solid while;
+            padding: 20px;
+            margin: 30px;
         }
     </style>
 </head>
@@ -94,14 +100,15 @@ try {
             $stmt2->execute(array($row['prodid']));
             if($stmt2->rowCount() > 0) {
                 while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+                    echo "div class='product_wrapper'";
                     echo "Product's ID: ".$row2['id']."<br>";
                     echo "Price per item: ".$row2['price']."ZŁ<br>";
                     echo "Product's Name: ".$row2['name']."<br>";
                     echo "<form class='text' action='cartdeleteitem.php' method='POST'>";
                     echo "<input type='hidden' id='PID' name='PID' value=".$row2['id'].">";
-                    echo "<button type='submit'>Delete from cart</button>";
+                    echo "<button class='btn_delete' type='submit'>Delete from cart</button>";
                     echo "</form>";
-                    echo "<hr>";
+                    echo "</div>";
                 }
             }
         }
