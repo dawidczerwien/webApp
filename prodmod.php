@@ -64,8 +64,8 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
 </head>
 <body>
 <div>
-    <form class="text" action="usermod.php" method="POST">
-        <button type="submit">Back to User Page</button>
+    <form class="text" action="admin.php" method="POST">
+        <input type="submit" value="Back to admin page"></input>
     </form>
 </div>
 
