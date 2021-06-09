@@ -43,8 +43,6 @@ try {
 
 let list = document.getElementById('products-list');
 var data = <?php echo $dataJSON; ?>;
-console.log( data );
-console.log( "test" );
 
 for(var i=0; i<data.length; i++){
     var li = document.createElement("li");
@@ -68,7 +66,7 @@ for(var i=0; i<data.length; i++){
     button.value = "Delete";
     form.appendChild(button);
     li.appendChild(form);
-    //form.submit();
+
     li.setAttribute("id", i);
     list.appendChild(li);
     list.appendChild(li);
