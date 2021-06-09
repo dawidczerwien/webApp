@@ -18,7 +18,7 @@ function userBanned($conn, $uname) {
     $stmt = $conn->prepare('SELECT isbanned FROM users WHERE uname = ?');
     $stmt->execute(array($uname));
     $isbanned = $stmt->fetch();
-    if($isbanned) return true;
+    if($isbanned == 1) return true;
     return false;
 }
 
