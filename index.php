@@ -47,7 +47,7 @@
                     echo "<div class='price'>".$row['price'].".00 PLN</div>";
                     echo "<div class='price'>".$row['put_date']."</div>";
                     echo "<form class='text' action='cart.php' method='POST'>";
-                    echo "<input type='hidden' id='PID' name='PID' value='.$row['put_date'].'>";
+                    echo "<input type='hidden' id='PID' name='PID' value=".$row['put_date'].">";
                     echo "<button type='submit'>Add product</button>";
                     echo "</form>";
                     echo "</div>";
