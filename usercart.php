@@ -30,6 +30,11 @@ try {
             }
         }
         echo "<button>Payment</button>";
+        echo "<div> ";
+        echo "<form class='text' action='index.php' method='POST'>";
+        echo "<button type='submit'>Go back</button>";
+        echo "</form>";
+        echo "</div>";
     }
     else {
         echo "<div> ";
