@@ -6,6 +6,10 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
 }
 
 require_once "connection.php";
+if(!isset($_POST['id']){
+    header('Location: login.php');
+    exit();
+})
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

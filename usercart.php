@@ -25,6 +25,10 @@ try {
                     echo "Product's ID: ".$row2['id']."<br>";
                     echo "Price per item: ".$row2['price']."ZŁ<br>";
                     echo "Product's Name: ".$row2['name']."<br>";
+                    echo "<form class='text' action='cartdeleteitem.php' method='POST'>";
+                    echo "<input type='hidden' id='PID' name='PID' value=".$row2['id'].">";
+                    echo "<button type='submit'>Delete from cart</button>";
+                    echo "</form>";
                     echo "<hr>";
                 }
             }
