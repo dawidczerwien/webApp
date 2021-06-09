@@ -24,7 +24,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     </div>
     <div>
         <form class="text" action="prodmod.php" method="POST">
-            <button type="submit">Delete products from database</button>
+            <button type="submit">Delete products</button>
         </form>
     </div>
 
