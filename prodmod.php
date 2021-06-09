@@ -5,7 +5,6 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +51,6 @@ for(var i=0; i<data.length; i++){
     list.appendChild(element);
 
 }
-
 </script>
 </body>
 </html>

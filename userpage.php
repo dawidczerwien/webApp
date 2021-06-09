@@ -41,6 +41,5 @@ echo "Your account's balance is: ".$_SESSION['ubank']."<br>";
         </form>
     </div>
     </div>
-    
 </body>
 </html>
