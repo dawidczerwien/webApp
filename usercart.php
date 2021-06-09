@@ -33,7 +33,7 @@ try {
     }
     else {
         echo "<div> ";
-        echo "Your cart is empty!"
+        echo "Your cart is empty!";
         echo "<form class='text' action='index.php' method='POST'>";
         echo "<button type='submit'>Go back</button>";
         echo "</form>";
