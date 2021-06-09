@@ -73,7 +73,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
         <ul id="list"></ul>
     </div>
 </div>
-<h2>ALL USERS DATA:</h2>
+<h2>ALL USERS DATA</h2>
 <?php
 require_once "connection.php";
 try {

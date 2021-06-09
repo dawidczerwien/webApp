@@ -69,7 +69,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     </form>
 </div>
 
-<h2>ALL PRODUCTS DATA:</h2>
+<h2>ALL PRODUCTS DATA</h2>
 <br>
 <div class="content__list">
         <ul id="list"></ul>
