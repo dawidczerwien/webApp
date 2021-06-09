@@ -20,7 +20,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
             margin-right: 10%;
         }
 
-        input[type=submit] {
+        input, button[type=submit] {
             border: 0;
             background: none;
             display: block;
