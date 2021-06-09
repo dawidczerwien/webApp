@@ -15,6 +15,32 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     <link rel="stylesheet" type="text/css" href="styles/loginStyle.css">
     <title>Modify Users</title>
     <style>
+        .content__list {
+            margin-top: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        input[type=submit] {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            padding: 12px;
+            border-radius: 25px;
+            border: 2px solid white;
+            outline: none;
+            color: white;
+            transition: .2s;
+            width: 200px;
+        }
+
+        input[type=submit]:hover {
+            width: 250px;
+            background-color: red;
+        }
+        
         h2 {
             font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
             margin: 0;
