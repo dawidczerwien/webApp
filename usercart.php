@@ -100,7 +100,7 @@ try {
             $stmt2->execute(array($row['prodid']));
             if($stmt2->rowCount() > 0) {
                 while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-                    echo "div class='product_wrapper'";
+                    echo "<div class='product_wrapper'>";
                     echo "Product's ID: ".$row2['id']."<br>";
                     echo "Price per item: ".$row2['price']."ZŁ<br>";
                     echo "Product's Name: ".$row2['name']."<br>";
