@@ -48,7 +48,7 @@ let list = document.getElementById('products-list');
 for(var i=0; i<data.length; i++){
 
     var li = document.createElement("li");
-            li.appendChild(document.createTextNode('id: ' + data[i]['id'] + data[i]['uname'] + "  "+data[i]['email']+" role: "+data[i]['role']+" "));
+            li.appendChild(document.createTextNode('id: ' + data[i]['id'] +" "+ data[i]['uname'] + "  "+data[i]['email']+" role: "+data[i]['role']+" "));
             var form = document.createElement("form");
             var hiddenInput = document.createElement("input");
             var button = document.createElement("input");
