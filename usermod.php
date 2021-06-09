@@ -14,6 +14,28 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/loginStyle.css">
     <title>Modify Users</title>
+    <style>
+        h2 {
+            font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+            border-bottom: 1px solid #ccc;
+        }
+
+        li:last-child {
+            border: none;
+        }
+    </style>
 </head>
 <body>
 <div>
