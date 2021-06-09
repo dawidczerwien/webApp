@@ -65,7 +65,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
 </head>
 <body>
 <div>
-    <form class="text" action="index.php" method="POST">
+    <form class="text" action="userpage.php" method="POST">
         <button type="submit">Back to User Page</button>
     </form>
 
