@@ -15,7 +15,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $conn->prepare('DELETE FROM prod WHERE id = ?');
     $stmt->execute(array($_POST['id']));
-    $_SESSION['mess'] = "Product of id: ".$_POST['id']." was deleted";
+    $_SESSION['mess'] = '<span style="color:green">Product of id: '.$_POST['id'].' was deleted</span>';
     header('Location: prodmod.php');
     exit();
 }

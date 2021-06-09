@@ -24,7 +24,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
         <?php
             if(isset($_SESSION['err']))	{
                 echo $_SESSION['err']."<br>";
-            unset( $_SESSION['err']);
+                unset( $_SESSION['err']);
         }
         ?>
         <button type="submit">Add new!</button>
