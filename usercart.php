@@ -64,8 +64,10 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
         }
         .product_wrapper{
             border-radius: 25px;
-            border: 2px solid while;
+            border: 2px solid white;
             padding: 20px;
+            margin: 30px;
+            display: inline-table;
             margin: 30px;
         }
     </style>
@@ -112,7 +114,7 @@ try {
                 }
             }
         }
-        echo "<button>Payment</button>";
+        echo "<button class='btn_delete'>Payment</button>";
         echo "<div> ";
         echo "<form class='text' action='index.php' method='POST'>";
         echo "<button type='submit'>Go back</button>";
