@@ -70,7 +70,10 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
 </div>
 
 <h1>ALL PRODUCTS DATA</h1>
-<ul id="products-list">
+<br>
+<div class="content__list">
+        <ul id="list"></ul>
+    </div>
 </ul>
 <?php
 require_once "connection.php";

@@ -69,7 +69,9 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
         <button type="submit">Back to User Page</button>
     </form>
 
-    <ul id="products-list">
+    <div class="content__list">
+        <ul id="list"></ul>
+    </div>
 
 </div>
 <?php
