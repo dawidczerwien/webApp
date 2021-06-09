@@ -42,42 +42,34 @@ try {
 
 
 let list = document.getElementById('products-list');
-//let element = document.createElement('li');
 var data = <?php echo $dataJSON; ?>;
-console.log( data );
-console.log( "test" );
 
 for(var i=0; i<data.length; i++){
-    //console.log(data[i]);
-    //element = document.createElement('li');
-    //element.appendChild(document.createTextNode('id: ' + data[i]['id'] + data[i]['name'] + "  "+data[i]['description']+" "+data[i]['price']+" PLN"));
-    //list.appendChild(element);
-
     var li = document.createElement("li");
-            li.appendChild(document.createTextNode('id: ' + data[i]['id'] + data[i]['name'] + "  "+data[i]['description']+" "+data[i]['price']+" PLN"));
-            var form = document.createElement("form");
-            var hiddenInput = document.createElement("input");
-            var button = document.createElement("input");
+    li.appendChild(document.createTextNode('id: ' + data[i]['id'] + data[i]['name'] + "  "+data[i]['description']+" "+data[i]['price']+" PLN"));
+    var form = document.createElement("form");
+    var hiddenInput = document.createElement("input");
+    var button = document.createElement("input");
 
-            form.method = "POST";
-            form.action = "deleteprod.php";
+    form.method = "POST";
+    form.action = "deleteprod.php";
 
 
-            hiddenInput.setAttribute("type", "hidden");
-            hiddenInput.setAttribute("id", i);
-            hiddenInput.setAttribute("name", i);
-            hiddenInput.setAttribute("value", data[i]['id']);
-            form.appendChild(hiddenInput);
+    hiddenInput.setAttribute("type", "hidden");
+    hiddenInput.setAttribute("id", i);
+    hiddenInput.setAttribute("name", i);
+    hiddenInput.setAttribute("value", data[i]['id']);
+    form.appendChild(hiddenInput);
 
-            button.setAttribute("id", i);
-            button.setAttribute("type", "submit");
-            button.value = "Delete";
-            form.appendChild(button);
-            li.appendChild(form);
-            //form.submit();
-            li.setAttribute("id", i);
-            list.appendChild(li);
-            list.appendChild(li);
+    button.setAttribute("id", i);
+    button.setAttribute("type", "submit");
+    button.value = "Delete";
+    form.appendChild(button);
+    li.appendChild(form);
+
+    li.setAttribute("id", i);
+    list.appendChild(li);
+    list.appendChild(li);
 
 }
 </script>
