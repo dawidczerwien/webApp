@@ -5,6 +5,78 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
     exit();
 }
 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/loginStyle.css">
+    <title>Modify Users</title>
+    <style>
+        .content__list {
+            margin-top: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        input, button[type=submit] {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            padding: 12px;
+            border-radius: 25px;
+            border: 2px solid white;
+            outline: none;
+            color: white;
+            transition: .2s;
+            width: 200px;
+        }
+
+        input[type=submit]:hover {
+            width: 250px;
+            background-color: red;
+        }
+        
+        h2 {
+            font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+            border-bottom: 1px solid #ccc;
+        }
+
+        li:last-child {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form class="text" action="index.php" method="POST">
+        <button type="submit">Back to User Page</button>
+    </form>
+
+    <div class="content__list">
+        <ul id="list"></ul>
+    </div>
+
+</div>
+<?php
+
 require_once "connection.php";
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
@@ -53,3 +125,7 @@ catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
+
+</script>
+</body>
+</html>
