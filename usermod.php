@@ -20,6 +20,9 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     <form class="text" action="index.php" method="POST">
         <button type="submit">Back to User Page</button>
     </form>
+
+    <ul id="products-list">
+
 </div>
 <?php
 require_once "connection.php";
@@ -41,6 +44,37 @@ try {
 <script>
 var data = <?php echo $dataJSON; ?>;
 console.log( data );
+let list = document.getElementById('products-list');
+
+for(var i=0; i<data.length; i++){
+
+    var li = document.createElement("li");
+            li.appendChild(document.createTextNode('id: ' + data[i]['id'] + data[i]['uname'] + "  "+data[i]['email']+" role: "+data[i]['role']+" "));
+            var form = document.createElement("form");
+            var hiddenInput = document.createElement("input");
+            var button = document.createElement("input");
+
+            form.method = "POST";
+            form.action = "deleteprod.php";
+
+
+            hiddenInput.setAttribute("type", "hidden");
+            hiddenInput.setAttribute("id", i);
+            hiddenInput.setAttribute("name", i);
+            hiddenInput.setAttribute("value", data[i]['id']);
+            form.appendChild(hiddenInput);
+
+            button.setAttribute("id", i);
+            button.setAttribute("type", "submit");
+            button.value = "Deactivate accout";
+            form.appendChild(button);
+            li.appendChild(form);
+            //form.submit();
+            li.setAttribute("id", i);
+            list.appendChild(li);
+            list.appendChild(li);
+
+}
 </script>
 </body>
 </html>
