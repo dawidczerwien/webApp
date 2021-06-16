@@ -19,11 +19,11 @@ if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
   <button type="submit">Login</button>
   <?php
 	if(isset($_SESSION['err']))	{
-		echo "<span style='color:red'>".$_SESSION['err']."<br>";
+		echo "<span style='color:red'>".$_SESSION['err']."</span><br>";
     unset( $_SESSION['err']);
   }
   if(isset($_SESSION['mess'])){
-    echo  "<span style='color:green'>".$_SESSION['mess']."<br>";
+    echo  "<span style='color:green'>".$_SESSION['mess']."</span><br>";
     unset($_SESSION['mess']);
   }
   ?>
