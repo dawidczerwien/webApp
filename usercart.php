@@ -75,9 +75,11 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
 </head>
 <body>
 <div>
+    <div class="go_back_container">
     <form class="text" action="userpage.php" method="POST">
         <button type="submit">Back to User Page</button>
     </form>
+    </div>
 
     <div class="content__list">
         <ul id="list"></ul>
