@@ -20,6 +20,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
         echo "Your account's balance is: ".$_SESSION['ubank']."<br>";
         ?>
         </div>
+        <br><br>
     <div>
         <form class="text" action="index.php" method="POST">
             <button type="submit">Main Page</button>
