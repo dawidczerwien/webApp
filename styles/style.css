@@ -65,6 +65,7 @@ h1 {
     text-align: center;
     font-weight: 500;
     font-size: 13px;
+    padding-bottom: 10px;
 }
 
 * {
@@ -122,6 +123,10 @@ h1 {
     border: 2px solid black;
     outline: none;
     transition: .2s;
+    margin-top: 10px;
+}
+#btn_cart:hover {
+    background-color: lightcoral;   
 }
 
 #content input[type=text] {
