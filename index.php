@@ -28,7 +28,7 @@
             </div>
         </div>
         <div id="content">
-        <div class="cards">
+        <div id="cards">
 
 
         <?php
@@ -48,7 +48,7 @@
         ?>
         <script>
         var data = <?php echo $dataJSON; ?>;
-        let cards = document.getElementsByClassName('cards');
+        let cards = document.getElementById('cards');
 
         for(var i=0; i<data.length; i++){
             cards.innerHTML += ` 

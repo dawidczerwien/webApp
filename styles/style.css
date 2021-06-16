@@ -81,7 +81,7 @@ h1 {
     text-align: center;
 }
 
-.cards {
+#cards {
     background-color: white;
     padding: 30px;
     width: 100%;
