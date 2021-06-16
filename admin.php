@@ -1,6 +1,7 @@
 <?php
 session_start();
 if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESSION['role'] != "Admin") ) {
+    $_SESSION['err'] = "You have to log in first! (as admin)";
     header('Location: login.php');
     exit();
 }
