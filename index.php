@@ -57,7 +57,6 @@
             cards.innerHTML = "";
             
             var filtered = data.filter(a => a.name.indexOf(el) > -1 ); //f.name.indexOf('(Family)') > -1
-            console.log(filtered);
 
         for(var i=0; i<filtered.length; i++){
             cards.innerHTML += ` 
