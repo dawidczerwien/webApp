@@ -29,7 +29,7 @@
         </div>
         <div id="content">
         <form>
-            <input type="text" id="search_input" onkeyup="filter(this.value)">
+            <input type="text" id="search_input" placeholder="Search for products" onkeyup="filter(this.value)">
         </form>
         <div id="cards">
 
