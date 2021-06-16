@@ -17,7 +17,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
         <div>
         <?php
         echo "<h2>Logged in as ".$_SESSION['uname']."<h2><br>";
-        echo "Hi ".$_SESSION['realname'].$_SESSION['realsurname']."<br>";
+        echo $_SESSION['realname'].$_SESSION['realsurname']."<br>";
         echo "Your account's balance is: ".$_SESSION['ubank']."<br>";
         ?>
         </div>
