@@ -55,7 +55,7 @@
         
         function filter(el){
             console.log(el.value);
-            var filtered = data.filter(a => a.name == el.value);
+            var filtered = data.filter(a => a.name.indexOf(el.value) > -1 ); //f.name.indexOf('(Family)') > -1
             console.log(filtered);
 
         }
