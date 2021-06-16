@@ -48,7 +48,7 @@
         ?>
         <script>
         var data = <?php echo $dataJSON; ?>;
-        let cards = document.getElementById('cards');
+        let cards = document.getElementsByClassName('cards');
 
         for(var i=0; i<data.length; i++){
             cards.innerHTML += ` 
