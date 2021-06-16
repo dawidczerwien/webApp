@@ -28,6 +28,9 @@
             </div>
         </div>
         <div id="content">
+        <form>
+            <input type="text" id="search_input" onkeyup="filter(this)">
+        </form>
         <div id="cards">
 
 
@@ -45,9 +48,6 @@
         }
         ?>
         
-        <form>
-            <input type="text" id="search_input" onkeyup="filter(this)">
-        </form>
 
         <script>
         var data = <?php echo $dataJSON; ?>;
@@ -55,6 +55,8 @@
         
         function filter(el){
             console.log(el.value);
+            var filtered = data.filter(a => a.type == el.value);
+            console.log(filtered);
 
         }
         for(var i=0; i<data.length; i++){
