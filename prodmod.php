@@ -21,7 +21,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
             margin-right: 10%;
         }
 
-        input, button[type=submit] {
+        .content__list input, .content__list button[type=submit] {
             border: 0;
             background: none;
             display: block;
@@ -36,7 +36,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
             width: 200px;
         }
 
-        input[type=submit]:hover {
+        .content__list input[type=submit]:hover {
             width: 250px;
             background-color: red;
         }
@@ -65,9 +65,11 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
 </head>
 <body>
 <div>
+    <div class="go_back_container">
     <form class="text" action="admin.php" method="POST">
         <input type="submit" value="Back to admin page"></input>
     </form>
+    </div>
 </div>
 
 <h3>ALL PRODUCTS DATA</h3>
