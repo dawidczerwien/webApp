@@ -16,7 +16,7 @@
             <?php
             session_start();
             if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true)) {
-                echo '<p style="margin-bottom:100px;">Logged in as:  ';
+                echo '<p style="margin-bottom:10px;">Logged in as:  ';
                 echo "<b>".$_SESSION['uname']."</b>";
                 echo '</p>';
                 echo '<a href="logout.php"><p>LOGOUT</p></a>';
