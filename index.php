@@ -55,7 +55,7 @@
         
         function filter(el){
             console.log(el.value);
-            var filtered = data.filter(a => a.type == el.value);
+            var filtered = data.filter(a => a.name == el.value);
             console.log(filtered);
 
         }
