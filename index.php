@@ -46,7 +46,7 @@
         ?>
         
         <form>
-            <input type="text" id="search_input" onkeydown="filter(this)">
+            <input type="text" id="search_input" onkeyup="filter(this)">
         </form>
 
         <script>
