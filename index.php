@@ -29,7 +29,7 @@
         </div>
         <div id="content">
         <form>
-            <input type="text" id="search_input" onkeyup="filter(this)">
+            <input type="text" id="search_input" onkeyup="filter(this.value)">
         </form>
         <div id="cards">
 
@@ -55,8 +55,8 @@
         
         function filter(el){
             cards.innerHTML = "";
-            console.log(el.value);
-            var filtered = data.filter(a => a.name.indexOf(el.value) > -1 ); //f.name.indexOf('(Family)') > -1
+            
+            var filtered = data.filter(a => a.name.indexOf(el) > -1 ); //f.name.indexOf('(Family)') > -1
             console.log(filtered);
 
         for(var i=0; i<filtered.length; i++){
@@ -80,7 +80,7 @@
             `
         }
         }
-
+        window.onload = filter("");
         </script>
 
         
