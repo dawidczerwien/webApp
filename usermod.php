@@ -68,19 +68,16 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     <form class="text" action="admin.php" method="POST">
         <input type="submit" value="Back to admin page"></input>
     </form>
-
+    <h3>ALL USERS DATA</h3>
     <div class="content__list">
         <ul id="list"></ul>
     </div>
 </div>
-<h3>ALL USERS DATA</h3>
 <?php
 require_once "connection.php";
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "<div>";
-    echo "<h1>ALL USER DATA</h1>";
     $stmt = $conn->prepare('SELECT * FROM users ORDER BY id DESC');
     $stmt->execute();
     $dataArray = $stmt->fetchAll();
