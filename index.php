@@ -48,7 +48,31 @@
         ?>
         <script>
         var data = <?php echo $dataJSON; ?>;
-        let list = document.getElementById('list');
+        let cards = document.getElementById('cards');
+
+        for(var i=0; i<data.length; i++){
+            cards.innerHTML += ` 
+            <div class='card'>
+            <div class='items_wrapper'>
+                <div class='photo'><img src='https://knowledgebanksociety.com/wp-content/uploads/2017/11/book-image-9.jpg'></div>
+                
+                <div class='title'>${data[i].name}</div>
+                <div class='description'>${data[i].description}</div>
+                <div class='price'>${data[i].price}00 PLN</div>
+                <div class='price'>${data[i].put_date}</div>
+                
+                <form class='text' action='cartadd.php' method='POST'>
+                <input type='hidden' id='PID' name='PID' value=${data[i].id}>
+                <button id='btn_cart' type='submit'>Add to cart</button>
+                </form>
+                    
+                </div>
+            </div>
+            `
+        
+
+}
+
         </script>
 
         
