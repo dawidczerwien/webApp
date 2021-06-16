@@ -44,10 +44,19 @@
             echo "Connection failed: " . $e->getMessage();
         }
         ?>
+        
+        <form>
+            <input type="text" id="search_input" onchange="filter($this)">
+        </form>
+
         <script>
         var data = <?php echo $dataJSON; ?>;
         let cards = document.getElementById('cards');
+        
+        function filter(el){
+            console.log(el.value);
 
+        }
         for(var i=0; i<data.length; i++){
             cards.innerHTML += ` 
             <div class='card'>
