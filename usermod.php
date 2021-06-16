@@ -66,9 +66,11 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
 </head>
 <body>
 <div>
+    <div class="go_back_container">
     <form class="text" action="admin.php" method="POST">
         <input type="submit" value="Back to admin page"></input>
     </form>
+    </div>
     <h3>ALL USERS DATA</h3>
     <div class="content__list">
         <ul id="list"></ul>
