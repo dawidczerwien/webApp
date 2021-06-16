@@ -1,6 +1,7 @@
 <?php
 session_start();
 if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
+    $_SESSION['err'] = "You have to log in first!";
     header('Location: login.php');
     exit();
 }

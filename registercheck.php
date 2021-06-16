@@ -40,6 +40,7 @@ function dbCreateUser($conn, $login, $pass, $email) {
 
 session_start();
 if((!isset($_POST['inlogin'])) || (!isset($_POST['inpass']))) {
+    $_SESSION['err'] = "You have to fill the form first!";
     header('Location: register.php');
     exit();
 }
