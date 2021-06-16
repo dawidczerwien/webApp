@@ -38,7 +38,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
             width: 200px;
         }
 
-        button .btn_delete:hover {
+        .btn_delete:hover {
             width: 250px;
             background-color: red;
         }
