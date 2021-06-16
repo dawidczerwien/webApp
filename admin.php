@@ -19,12 +19,12 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     <h2>Administrative Tasks</h2>
     <div>
         <form class="text" action="usermod.php" method="POST">
-            <button type="submit">Modify user accounts</button>
+            <button type="submit">Deactivate user accounts</button>
         </form>
     </div>
     <div>
         <form class="text" action="prodmod.php" method="POST">
-            <button type="submit">Modify products in database</button>
+            <button type="submit">Delete products</button>
         </form>
     </div>
 
@@ -32,7 +32,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
     
     <h2>User Tasks</h2>
     <div>
-        <form class="text" action="index.php" method="POST">
+        <form class="text" action="userpage.php" method="POST">
             <button type="submit">Back to User Page</button>
         </form>
     </div>

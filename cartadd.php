@@ -8,7 +8,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
 function addProduct($conn, $UID, $PID) {
     $stmt = $conn->prepare("INSERT INTO cart (`userid`, `prodid`) VALUES (?, ?)");
     $stmt->execute(array($UID, $PID));
-    return "Product added to Your cart!";
+    return '<span style="color:green">Product added to Your cart!</span>';
 }
 
 

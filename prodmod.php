@@ -64,12 +64,12 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
 </head>
 <body>
 <div>
-    <form class="text" action="index.php" method="POST">
-        <button type="submit">Back to User Page</button>
+    <form class="text" action="admin.php" method="POST">
+        <input type="submit" value="Back to admin page"></input>
     </form>
 </div>
 
-<h1>ALL PRODUCTS DATA</h1>
+<h3>ALL PRODUCTS DATA</h3>
 <br>
 <div class="content__list">
         <ul id="list"></ul>

@@ -30,7 +30,30 @@
         <div id="content">
         <div class="cards">
 
+
         <?php
+        require_once "connection.php";
+        try {
+            $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "<div>";
+            echo "<h1>ALL USER DATA</h1>";
+            $stmt = $conn->prepare('SELECT * FROM prod ORDER BY put_date DESC');
+            $stmt->execute();
+            $dataArray = $stmt->fetchAll();
+            $dataJSON = json_encode($dataArray);
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+        ?>
+        <script>
+        var data = <?php echo $dataJSON; ?>;
+        let list = document.getElementById('list');
+        </script>
+
+        
+        <?php
+        /*
         require_once "connection.php";
         try {
             $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
@@ -60,6 +83,7 @@
         catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
+        */
         ?>
         </div>
         </div>

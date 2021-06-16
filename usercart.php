@@ -74,7 +74,7 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false)) {
 </head>
 <body>
 <div>
-    <form class="text" action="index.php" method="POST">
+    <form class="text" action="userpage.php" method="POST">
         <button type="submit">Back to User Page</button>
     </form>
 
@@ -96,6 +96,7 @@ try {
     $stmt = $conn->prepare('SELECT * FROM cart WHERE userid = ?');
     $stmt->execute(array($_SESSION['id']));
     if($stmt->rowCount() > 0) {
+        $cartsum = 0;
         echo "Your cart items: <br><br>";
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $stmt2 = $conn->prepare('SELECT * FROM prod WHERE id = ?');
@@ -104,21 +105,25 @@ try {
                 while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                     echo "<div class='product_wrapper'>";
                     echo "Product's ID: ".$row2['id']."<br>";
-                    echo "Price per item: ".$row2['price']."ZŁ<br>";
+                    echo "Price per item: ".$row2['price']." ZŁ<br>";
                     echo "Product's Name: ".$row2['name']."<br>";
                     echo "<form class='text' action='cartdeleteitem.php' method='POST'>";
                     echo "<input type='hidden' id='PID' name='PID' value=".$row2['id'].">";
                     echo "<button class='btn_delete' type='submit'>Delete from cart</button>";
                     echo "</form>";
                     echo "</div>";
+                    $cartsum += floatval($row2['price']);
                 }
             }
         }
-        echo "<button class='btn_delete'>Payment</button>";
+        echo "<div>";
+        echo "Sum to be paid: <b>".$cartsum." Zł</b><br>";
+        echo "<button class='btn_delete' type='submit'>Payment</button>";
         echo "<div> ";
         echo "<form class='text' action='index.php' method='POST'>";
         echo "<button type='submit'>Go back</button>";
         echo "</form>";
+        echo "</div>";
         echo "</div>";
     }
     else {

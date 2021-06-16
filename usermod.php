@@ -65,15 +65,15 @@ if ((!isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==false) && ($_SESS
 </head>
 <body>
 <div>
-    <form class="text" action="index.php" method="POST">
-        <button type="submit">Back to User Page</button>
+    <form class="text" action="admin.php" method="POST">
+        <input type="submit" value="Back to admin page"></input>
     </form>
 
     <div class="content__list">
         <ul id="list"></ul>
     </div>
-
 </div>
+<h3>ALL USERS DATA</h3>
 <?php
 require_once "connection.php";
 try {

@@ -15,7 +15,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $conn->prepare('DELETE FROM cart WHERE prodid = ? AND userid = ?');
     $stmt->execute(array($_POST['PID'], $_SESSION['id']));
-    $_SESSION['mess'] = "Product of id: ".$_POST['id']." was deleted from cart";
+    $_SESSION['mess'] ='<span style="color:green">Product of id: '.$_POST['id'].' was deleted from cart</span>';
     header('Location: usercart.php');
     exit();
 }
