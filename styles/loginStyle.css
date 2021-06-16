@@ -43,7 +43,7 @@ body {
 ::placeholder {
     color: white;
 }
-.container button[type=submit] {
+.container button[type=submit], .go_back_container button[type=submit]{
     border: 0;
     background: none;
     display: block;
@@ -57,7 +57,7 @@ body {
     transition: .2s;
     width: 200px;
 }
-.container button[type=submit]:hover {
+.container button[type=submit]:hover, .go_back_container button[type=submit]:hover{
     width: 250px;
     background-color: #57b846;
 }
